@@ -42,9 +42,9 @@ class pca_clustering(events.build_events):
         """
         events.build_events.__init__(self, data, positions, win, before, after)
         # Convert the list of events to a numpy array
-        self.evts = np.asarray(self.mk_events())
+        self.evts = np.asarray(self.mkEvents())
         # Convert the list of noise events to a numpy array
-        self.noise = np.asarray(self.mk_noise())
+        self.noise = np.asarray(self.mkNoise())
         # Compute the clean events
         # self.goodEvts = good_evts_fct(self.evts, thr)
         self.goodEvts = self.sieve(good_evts_fct, self.evts, thr)
@@ -297,26 +297,26 @@ class pca_clustering(events.build_events):
         fig.subplots_adjust(wspace=.3, hspace=.3)
 
         ax = fig.add_subplot(511)
-        self.plot_event(self.evts[self.goodEvts, :]
+        self.plotEvent(self.evts[self.goodEvts, :]
                         [np.array(clusters) == 0, :])
         plt.ylim([-15, 20])
 
         ax = fig.add_subplot(512)
-        self.plot_event(self.evts[self.goodEvts, :]
+        self.plotEvent(self.evts[self.goodEvts, :]
                         [np.array(clusters) == 1, :])
         ax.set_ylim([-15, 20])
 
         ax = fig.add_subplot(513)
-        self.plot_event(self.evts[self.goodEvts, :]
+        self.plotEvent(self.evts[self.goodEvts, :]
                         [np.array(clusters) == 2, :])
         ax.set_ylim([-15, 20])
 
         ax = fig.add_subplot(514)
-        self.plot_event(self.evts[self.goodEvts, :]
+        self.plotEvent(self.evts[self.goodEvts, :]
                         [np.array(clusters) == 3, :])
         ax.set_ylim([-15, 20])
 
         ax = fig.add_subplot(515)
-        self.plot_event(self.evts[self.goodEvts, :]
+        self.plotEvent(self.evts[self.goodEvts, :]
                         [np.array(clusters) == 4, :])
         ax.set_ylim([-15, 20])

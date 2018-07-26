@@ -116,7 +116,7 @@ class build_events(spikes.spike_detection):
         nb_i = (i1 - minimal_length)//sl
         # Get the number of noise sweeps that are going to be cut
         nb_possible = min(size, sum(nb_i[nb_i > 0]))
-        res = np.zeros((nb_possible, sl * x.shape[0]))
+        res = np.zeros((int(nb_possible), int(sl * x.shape[0])))
         # Create next a list containing the indices of the inter event
         # intervals that are long enough
         idx_l = [i for i in range(len(i1)) if nb_i[i] > 0]
